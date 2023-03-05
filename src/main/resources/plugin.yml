@@ -1,0 +1,11 @@
+main: uk.fuby.hhh.Main
+name: hhh
+version: 0.0.0
+api-version: 1.13
+author: Skye
+description: Party Game hhh Practice
+
+commands:
+  play:
+    description: starts a game
+    usage: /play
