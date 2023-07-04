@@ -9,3 +9,6 @@ commands:
   play:
     description: starts a game
     usage: /play
+  jointeam:
+    description: join a team
+    usage: /jointeam

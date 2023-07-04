@@ -4,7 +4,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.boss.BarColor;
 import org.bukkit.boss.BarStyle;
-import org.bukkit.boss.KeyedBossBar;
 import org.bukkit.event.player.PlayerJoinEvent;
 import uk.fuby.hhh.Main;
 import uk.fuby.hhh.core.HHHPlayer;

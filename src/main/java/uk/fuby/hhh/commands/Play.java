@@ -1,6 +1,5 @@
 package uk.fuby.hhh.commands;
 
-import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.boss.KeyedBossBar;
 import org.bukkit.command.Command;
@@ -11,42 +10,63 @@ import org.bukkit.scheduler.BukkitRunnable;
 import org.jetbrains.annotations.NotNull;
 import uk.fuby.hhh.Main;
 import uk.fuby.hhh.core.HHHPlayer;
+import uk.fuby.hhh.core.Team;
 import uk.fuby.hhh.utils.BossBarDisplay;
 import uk.fuby.hhh.utils.CountdownDisplay;
-
-import java.util.Iterator;
-import java.util.UUID;
 
 public class Play implements CommandExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, String[] args) {
-        Player player = (Player) sender;
-        UUID uuid = player.getUniqueId();
-        HHHPlayer hhhPlayer = HHHPlayer.getFromPlayer(player);
-        if (hhhPlayer == null) return true;
-
-        hhhPlayer.setScore(0);
-        hhhPlayer.setPlaying(true);
-        hhhPlayer.setWaiting(true);
+        boolean teamsEmpty = true;
+        for (Team team : Main.teams) {
+            if (team.getPlayers().size() > 0) {
+                teamsEmpty = false;
+                break;
+            }
+        }
+        if (teamsEmpty) return true;
 
         int delay = 5;
         int timeLimit = 60;
 
-        NamespacedKey bossBarKey = new NamespacedKey(Main.getPlugin(Main.class), player.getUniqueId().toString());
-        KeyedBossBar bossBar = player.getServer().getBossBar(bossBarKey);
-        bossBar.addPlayer(player);
+        for (Team team : Main.teams) {
+            team.setScore(0);
+            for (HHHPlayer hhhPlayer : team.getPlayers()) {
 
-        CountdownDisplay countdownDisplay = new CountdownDisplay(delay, hhhPlayer);
-        countdownDisplay.runTaskTimerAsynchronously(Main.getPlugin(Main.class), 0, 20);
-        BossBarDisplay bossBarDisplay = new BossBarDisplay(timeLimit, hhhPlayer, bossBar);
-        bossBarDisplay.runTaskTimerAsynchronously(Main.getPlugin(Main.class), delay * 20, 20);
+                System.out.println(team.getName() + " has the player: " + hhhPlayer.getPlayer().getName());
+
+                Player player = hhhPlayer.getPlayer();
+                hhhPlayer.setScore(0);
+                hhhPlayer.setPlaying(true);
+                hhhPlayer.setWaiting(true);
+
+                NamespacedKey bossBarKey = new NamespacedKey(Main.getPlugin(Main.class), player.getUniqueId().toString());
+                KeyedBossBar bossBar = player.getServer().getBossBar(bossBarKey);
+                bossBar.addPlayer(player);
+
+                System.out.println(hhhPlayer);
+
+                CountdownDisplay countdownDisplay = new CountdownDisplay(delay, hhhPlayer);
+                countdownDisplay.runTaskTimerAsynchronously(Main.getPlugin(Main.class), 0, 20);
+                BossBarDisplay bossBarDisplay = new BossBarDisplay(timeLimit, hhhPlayer, bossBar);
+                bossBarDisplay.runTaskTimerAsynchronously(Main.getPlugin(Main.class), delay * 20, 20);
+
+                System.out.println(hhhPlayer);
+                System.out.println("=========");
+            }
+        }
 
         new BukkitRunnable() {
             @Override
             public void run() {
-                hhhPlayer.setPlaying(false);
-                player.sendMessage("You got: " + hhhPlayer.getScore() + " blocks");
+                for (Team team : Main.teams) {
+                    for (HHHPlayer hhhPlayer : team.getPlayers()) {
+                        Player player = hhhPlayer.getPlayer();
+                        hhhPlayer.setPlaying(false);
+                        player.sendMessage("Your team got: " + team.getScore() + " blocks");
+                    }
+                }
             }
         }.runTaskLater(Main.getPlugin(Main.class),  (timeLimit + delay) * 20);
 

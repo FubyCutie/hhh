@@ -1,5 +1,6 @@
 package uk.fuby.hhh.core;
 
+import org.bukkit.DyeColor;
 import org.bukkit.entity.Player;
 import uk.fuby.hhh.Main;
 
@@ -11,10 +12,12 @@ public class HHHPlayer {
 
     private int score;
 
-    private Player player;
+    private final Player player;
+
+    private Team team;
 
     public HHHPlayer(Player player) {
-        this.isPlaying = true;
+        this.isPlaying = false;
         this.player = player;
     }
 
@@ -44,4 +47,12 @@ public class HHHPlayer {
     public boolean isWaiting() { return isWaiting; }
 
     public void setWaiting(boolean waiting) { isWaiting = waiting; }
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
 }

@@ -5,27 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45146119-2960-4c53-a67a-c06c9796761e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/uk/fuby/hhh/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/uk/fuby/hhh/commands/Play.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/uk/fuby/hhh/core/HHHPlayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/uk/fuby/hhh/core/events/listeners/EventListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/uk/fuby/hhh/core/events/spigot/Hoe.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/uk/fuby/hhh/core/events/spigot/Join.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/uk/fuby/hhh/utils/BossBarDisplay.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/uk/fuby/hhh/utils/CountdownDisplay.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/uk/fuby/hhh/commands/JoinTeam.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/uk/fuby/hhh/core/Team.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/uk/fuby/hhh/core/TeamColor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/uk/fuby/hhh/core/events/spigot/Leave.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/fuby/hhh/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/fuby/hhh/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/fuby/hhh/commands/Play.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/fuby/hhh/commands/Play.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/fuby/hhh/core/HHHPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/fuby/hhh/core/HHHPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/fuby/hhh/core/events/listeners/EventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/fuby/hhh/core/events/listeners/EventListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/fuby/hhh/core/events/spigot/Hoe.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/fuby/hhh/core/events/spigot/Hoe.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/uk/fuby/hhh/core/events/spigot/Join.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/uk/fuby/hhh/core/events/spigot/Join.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,9 +73,14 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Record" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -95,18 +91,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "/home/fuby/hhh",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.rainbow.brackets"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/fuby/hhh&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="hhh [build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -127,6 +124,7 @@
       <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
       <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
       <DebugAllEnabled>false</DebugAllEnabled>
+      <ForceTestExec>false</ForceTestExec>
       <method v="2" />
     </configuration>
     <recent_temporary>
